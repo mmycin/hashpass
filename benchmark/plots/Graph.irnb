@@ -1,0 +1,84 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "bd8f0d15",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "main <- function() {\n",
+    "  # Read the CSV file correctly\n",
+    "  data <- read.csv(\"benchmark.csv\", header = FALSE, stringsAsFactors = FALSE)\n",
+    "\n",
+    "  # Extracting values correctly\n",
+    "  rounds <- as.numeric(data[1, -1])  # First row (Rounds), skipping first column\n",
+    "  time_s <- as.numeric(data[2, -1])  # Second row (Time), skipping first column\n",
+    "\n",
+    "  # Check for any NA values due to conversion issues\n",
+    "  if (any(is.na(rounds)) || any(is.na(time_s))) {\n",
+    "    stop(\"Error: Data conversion failed. Check CSV formatting.\")\n",
+    "  }\n",
+    "\n",
+    "  # Open a PNG device\n",
+    "  png(\"benchmark.png\", width = 1000, height = 500)\n",
+    "\n",
+    "  # Create the plot\n",
+    "  plot(rounds, time_s, type = \"o\", col = \"blue\", pch = 16, lty = 1,\n",
+    "       xlab = \"Rounds\", ylab = \"Time (s)\", main = \"Benchmark Performance\")\n",
+    "\n",
+    "  # Close the PNG device\n",
+    "  dev.off()\n",
+    "}\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "3b7d2d3f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<strong>png:</strong> 2"
+      ],
+      "text/latex": [
+       "\\textbf{png:} 2"
+      ],
+      "text/markdown": [
+       "**png:** 2"
+      ],
+      "text/plain": [
+       "png \n",
+       "  2 "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "main()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "R",
+   "language": "R",
+   "name": "ir"
+  },
+  "language_info": {
+   "codemirror_mode": "r",
+   "file_extension": ".r",
+   "mimetype": "text/x-r-source",
+   "name": "R",
+   "pygments_lexer": "r",
+   "version": "3.6.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
