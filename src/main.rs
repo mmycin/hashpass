@@ -17,8 +17,8 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     /// Generate a bcrypt hash from a password string
-    #[command(short_flag = 's', visible_alias = "hash")]
-    String {
+    #[command(short_flag = 'g', visible_alias = "hash")]
+    Generate {
         /// The password string to hash
         string: String,
         /// Number of rounds for hashing (default: 10, recommended: 10-12)
@@ -39,7 +39,7 @@ fn main() {
     let cli = Cli::parse();
 
     match cli.command {
-        Commands::String { string, rounds } => {
+        Commands::Generate { string, rounds } => {
             match hash_password(&string, rounds) {
                 Ok(hash) => println!("{}", hash),
                 Err(e) => eprintln!("Error: {}", e),
