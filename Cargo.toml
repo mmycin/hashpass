@@ -9,3 +9,4 @@ description = "A CLI tool for password hashing and verification"
 clap = { version = "4.4", features = ["derive"] }
 bcrypt = "0.15"
 thiserror = "1.0"
+colored = "2.0"

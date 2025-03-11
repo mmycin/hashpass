@@ -1,4 +1,5 @@
 use clap::{Parser, Subcommand};
+use colored::*;
 use hashpass::{hash_password, verify_password};
 use bcrypt::DEFAULT_COST;
 
@@ -49,9 +50,9 @@ fn main() {
             match verify_password(&string, &hash) {
                 Ok(result) => {
                     if result {
-                        println!("Password matches the hash");
+                        println!("{}", "Password matches the hash".green());
                     } else {
-                        println!("Password does not match the hash");
+                        println!("{}", "Password does not match the hash".red());
                     }
                 }
                 Err(e) => eprintln!("Error: {}", e),
