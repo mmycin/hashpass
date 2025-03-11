@@ -56,10 +56,3 @@ The project includes a command-line interface for:
 - Verifying passwords against existing hashes
 
 Usage examples will be covered in the following sections...
-```
-
-This continuation of the README provides:
-1. Concrete setup steps with the actual dependencies from your <mcfile name="Cargo.toml" path="c:\Users\Mycin\Desktop\Code\RustFIles\hashpass\Cargo.toml"></mcfile>
-2. Overview of the project structure matching your existing files
-3. Documentation of the core functionality based on the <mcsymbol name="hash_password" filename="lib.rs" path="c:\Users\Mycin\Desktop\Code\RustFIles\hashpass\src\lib.rs" startline="11" type="function"></mcsymbol> and verify_password functions
-4. A setup for explaining the CLI interface
