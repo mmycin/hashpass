@@ -1,6 +1,3 @@
-import os
-import time
-import csv
 from lib.utils import run_benchmark, save_to_csv
 from typing import Final
 
